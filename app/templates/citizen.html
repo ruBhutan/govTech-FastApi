@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Fetch Citizen Details</h2>
+
+<form method="post" action="/citizen/">
+    <div class="form-group">
+        <label for="cid">Citizen ID (CID)</label>
+        <input type="text" name="cid" class="form-control" placeholder="Enter CID" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Fetch Details</button>
+</form>
+
+{% if citizen %}
+    <h3 class="mt-4">Citizen Details</h3>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Name</th>
+                <td>{{ citizen.name }}</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>{{ citizen.age }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ citizen.address }}</td>
+            </tr>
+            <!-- Add other fields as necessary -->
+        </tbody>
+    </table>
+{% endif %}
+{% endblock %}
